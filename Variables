@@ -1,0 +1,35 @@
+you can also assign the value of const globally 
+const PI :u8 = 10;
+fn main() {
+    let mut x = 69;
+    println!("baby wants to do {}",x);
+
+    x = 0;
+    println!("baby said {}", x);
+
+    //const PI :u8 = 10; 
+    // constant always requires to tell thier type => u8
+    //println!("PI value is {PI}");
+
+    const AGE: u32 = 22;
+    println!("value of age is {AGE}");
+
+    const THREE_HOURS_IN_SECONDS:u32 = 60 * 60 * 3 + AGE;
+    println!("THREE_HOURS_IN_SECONDS is {THREE_HOURS_IN_SECONDS}");
+    // we can only add to constant to constant we can't any value to const which can be change.
+}
+
+>> Shadowing -> the second variable is what the compiler will see when you use the name of the variable. In effect, the second variable overshadows the first, taking any uses of the variable name to itself until either it itself is shadowed or the scope ends. We can shadow a variable by using the same variable’s name and repeating the use of the let keyword.
+
+fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value of x is: {x}");
+}
