@@ -1,0 +1,44 @@
+We’ll look at two data type subsets: scalar and compound.
+>> Rust is a statically typed language. 
+
+>> we converted a String to a numeric type using parse.
+
+1). Scalar Types => single value , has four primary scalar types: integers, floating-point numbers, Booleans, and characters
+
+* Interger Type => (u32) it means that value is unsigned.
+u8 can store numbers from 0 to (2^8 - 1), which equals 0 to 255.
+                   (i32) means it is signed.
+-(2^n - 1) to (2^n - 1) - 1
+i8 can store numbers from -(27) to 27 - 1, which equals -128 to 127.
+whether the number needs to have a sign with it
+
+>> we can also write variables like:-
+let a: u8 = 254_u8;
+let s: u8 = 1_00_00_000;
+println!("value of s is {s}");
+
+>> integer overflow => when u give value integer value outside the range value. it will return error when u debug as "CARGO RUN"
+but when u debug as "cargo run --release" => it will return the output of range outside.
+
+// 0...255 -> 0,1,2,3,...
+// 256 => 0
+// 257 => 1
+// 258 => 2 .......so on 
+
+fn main(){
+    let a = random_number() + 56;
+    println!("value of a is {a}");
+}
+fn random_number() -> u8{
+    200
+}
+.........................................................
+>> Wrap in all modes with the wrapping_* methods, such as wrapping_add.
+>> Return the None value if there is overflow with the checked_* methods.
+>> Return the value and a boolean indicating whether there was overflow with the overflowing_* methods.
+>> Saturate at the value’s minimum or maximum values with the saturating_* methods.
+
+
+
+ 
+
