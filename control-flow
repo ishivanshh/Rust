@@ -1,5 +1,7 @@
 Handling multiple conditions with else if 
 
+>> if condition => If this condition is met, run this block of code. If the condition is not met, do not run this block of code.”
+
 fn main() {
     let number = 6;
 
@@ -22,7 +24,24 @@ fn main() {
 
     println!("The value of number is: {number}");
 }
-Repetion usuing control flow.......
+
+2). fn main() {
+    let condition = true;
+
+    let number = if condition { 5 } else { "six" };
+
+    println!("The value of number is: {number}");
+}
+When we try to compile this code, we’ll get an error. The if and else arms have value types that are incompatible, and Rust indicates exactly where to find the problem in the program:
+
+
+>> Repetion usuing control flow
+1). LOOPS
+2). WHILE 
+3). FOR 
+
+The loop keyword tells Rust to execute a block of code over and over again forever or until you explicitly tell it to stop.
+
 fn main() {
    let mut num = 0;
 
@@ -36,3 +55,59 @@ fn main() {
    } 
    println!("this is an end")
 }
+
+>> Returning the value from loops.
+
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+
+>> Loops labels to disambiguate between multiple loops.
+
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+// The outer loop has the label 'counting_up, and it will count up from 0 to 2. The inner loop without a label counts down from 10 to 9. The first break that doesn’t specify a label will exit the inner loop only. The break 'counting_up; statement will exit the outer loop. 
+
+>>  Conditional loops with while.
+
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+
