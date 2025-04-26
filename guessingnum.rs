@@ -1,4 +1,4 @@
-use std::io;
+use std::io; // input and output standard library 
 use rand::Rng;
 use std::cmp::Ordering;
 fn main(){
