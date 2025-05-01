@@ -23,4 +23,46 @@ OWNERSHIP RULES .......
     // do stuff with s 
 }                // this scope is over now 
 
->> The string type => huhuhuhuhuhuhuhuhuhuhhuhuhuuuhu
+>> The string type =>This type manages data allocated on the heap and as such is able to store an amount of text that is unknown to us at compile time. You can create a String from a string literal using the from function
+let s = String::from("hello");
+
+>>> This kind of string can be mutated:
+
+let mut s = String::from("hello");
+
+    s.push_str(", world!"); // push_str() appends a literal to a String
+
+    println!("{s}"); // This will print `hello, world!`
+
+5). Memory and allocation.
+
+  {
+        let s = String::from("hello"); // s is valid from this point forward
+
+        // do stuff with s
+    }                                  // this scope is now over, and s is no
+                                       // longer valid
+>> when s goes out of scope , when a variable goes out of scope, rust calls a special function for us. this function is calles as DROP 
+
+6). Variables and Data inteeracting with move
+
+>>  let x = 5;
+    let y = x;
+x and y both are equal , known fixed size and these two 5 values are pushed onto the stack.
+NOW, LOOK AT THE STRING VERSION..
+
+let s1 = String::from("hello");
+let s2 = s1; 
+>>  A string is made up of three parts , pointer , lenght , capacity 
+When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer.
+Rust automatically calls the drop function and cleans up the heap memory for that variable. This is a problem: when s2 and s1 go out of scope, they will both try to free the same memory. This is known as a double free error and is one of the memory safety bugs we mentioned previously.
+let s1 = String::from("hello");
+let s2 = s1;
+
+println!("{s1}, world!");
+
+6). Scope and Assignment.
+let mut s = String::from("hello");
+s = String::from("ahoy");
+println!("{s}, world!");
+ s and bind it to a String with the value "hello". Then we immediately create a new String with the value "ahoy" and assign it to s. At this point, nothing is referring to the original value on the heap at all.
