@@ -1,10 +1,11 @@
 OWNERSHIP =>  et of rules that govern how a Rust program manages memory.
 
 THE STACK AND THE HEAP.
->> both the stack and the heap are the parts of memory availabe to your code at use at a runtime , but their structure is diofferent.
+
+>> both the stack and the heap are the parts of memory availabe to your code at use at a runtime, but their structure is diofferent.
 
 1).  The stack stores values in the order it gets them and removes the values in the opposite order. This is referred to as last in, first out , Adding data is called pushing onto the stack, and removing data is called popping off the stack.
-all the data stored in the stack must have fisex size 
+all the data stored in the stack must have fix size 
 
 >>>  Data with an unknown size at compile time or a size that might change must be stored on the heap instead.
 
