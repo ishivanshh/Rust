@@ -63,6 +63,6 @@ println!("{s1}, world!");
 
 6). Scope and Assignment.
 let mut s = String::from("hello");
-s = String::from("ahoy");
+s = String::from("shivi");
 println!("{s}, world!");
- s and bind it to a String with the value "hello". Then we immediately create a new String with the value "ahoy" and assign it to s. At this point, nothing is referring to the original value on the heap at all.
+ s and bind it to a String with the value "hello". Then we immediately create a new String with the value "shivi" and assign it to s. At this point, nothing is referring to the original value on the heap at all.
