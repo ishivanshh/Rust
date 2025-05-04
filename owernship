@@ -11,7 +11,7 @@ all the data stored in the stack must have fix size
 
 2). Heap is less unorganized,  when you put data on the heap, you request a certain amount of space. The memory allocator finds an empty spot in the heap that is big enough mark it as being in use and return a pointer which is the address of that location. now pointer to heap know the fixed size , u can store the pointer to the stack 
 
-OWNERSHIP RULES .......
+OWNERSHIP RULES.
 
 1. each value in rust has an owner 
 2. there can only be one owner ata time 
@@ -23,6 +23,7 @@ OWNERSHIP RULES .......
     let s = "hello";   // s is valid from this point 
     // do stuff with s 
 }                // this scope is over now 
+When you define s from that point,u can access to s
 
 >> The string type =>This type manages data allocated on the heap and as such is able to store an amount of text that is unknown to us at compile time. You can create a String from a string literal using the from function
 let s = String::from("hello");
