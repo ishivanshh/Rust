@@ -102,3 +102,15 @@ If we tried to use s after the call to takes_ownership, Rust would throw a compi
 
 When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless ownership of the data has been moved to another variable.
 
+fn main(){
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("the length of '{s2}' is {len}");
+}
+
+fn calculate_length(s:String) -> (String, usize){
+    let length = s.len();
+    (s, length)
+}
