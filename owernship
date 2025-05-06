@@ -64,7 +64,41 @@ let s2 = s1;
 println!("{s1}, world!");
 
 6). Scope and Assignment.
+
 let mut s = String::from("hello");
 s = String::from("shivi");
 println!("{s}, world!");
  s and bind it to a String with the value "hello". Then we immediately create a new String with the value "shivi" and assign it to s. At this point, nothing is referring to the original value on the heap at all.
+
+7). if we dont want to deeply copy the heap data of the string, not just the stack data we can use a common method called clone. 
+
+   let s1 = String::from("hello");
+    let s2 = s1.clone();
+
+    println!("s1 = {s1}, s2 = {s2}");
+8). Ownership and function 
+
+fn main(){
+    let s = String::from("hello"); // s comes into scope
+
+    take_ownership(s); // s => function & no longer valid
+
+    let x = 5; // x comes into scope
+    makes_copy(x); // x does not move into function
+                                 // use x afterwards
+
+    println!("{}",x);
+}
+
+fn take_ownership(some_string: String){ // some_string comes into scope
+    println!("{some_string}");
+} // some_string goes out of scope and drop is called , memory is freed
+
+fn makes_copy(some_integer: i32){
+    println!("{some_integer}");
+} // some_integer goes out of scope. nothing special happens
+
+If we tried to use s after the call to takes_ownership, Rust would throw a compile-time error. These static checks protect us from mistakes. Try adding code to main that uses s and x to see where you can use them and where the ownership rules prevent you from doing so.
+
+When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless ownership of the data has been moved to another variable.
+
